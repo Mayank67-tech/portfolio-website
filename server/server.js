@@ -9,7 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 
-connectDB();
+// connectDB(); // Removed to prevent sync execution in Vercel. Handled in api/index.js and local listener below.
 
 const app = express();
 
@@ -38,6 +38,7 @@ const PORT = process.env.PORT || 5000;
 
 // Only listen if the file is run directly (not imported as a module)
 if (require.main === module) {
+  connectDB();
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
