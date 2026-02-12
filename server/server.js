@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
+
 const connectDB = require("./config/db");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
@@ -9,6 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 
+/* ================= DB CONNECT ================= */
 connectDB();
 
 const app = express();
@@ -16,7 +18,7 @@ const app = express();
 /* ================= SECURITY ================= */
 app.use(helmet());
 
-/* ================= CORS CONFIG ================= */
+/* ================= CORS CONFIG (PRODUCTION SAFE) ================= */
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -26,16 +28,23 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
+      // allow Postman or server-to-server requests
       if (!origin) return callback(null, true);
+
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
-      return callback(new Error("CORS not allowed"));
+
+      console.log("❌ Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
   })
 );
+
+// handle preflight requests
+app.options("*", cors());
 
 /* ================= BODY PARSING ================= */
 app.use(express.json());
