@@ -7,9 +7,9 @@ function getTransport() {
   const pass = process.env.GMAIL_APP_PASSWORD;
   if (!user || !pass) return null;
   return nodemailer.createTransport({
-    service: 'gmail',
-    port: 587,
-    secure: false,
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // IMPORTANT
     auth: { user, pass },
   });
 }
