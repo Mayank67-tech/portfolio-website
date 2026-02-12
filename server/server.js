@@ -16,7 +16,7 @@ const app = express();
 /* ================= SECURITY ================= */
 app.use(helmet());
 
-/* ================= CORS FIX (PRODUCTION SAFE) ================= */
+/* ================= CORS CONFIG ================= */
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -24,25 +24,18 @@ const allowedOrigins = [
   "https://portfolio-website-git-main-mayank67-techs-projects.vercel.app",
 ];
 
-
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps, Postman)
       if (!origin) return callback(null, true);
-
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
-      } else {
-        return callback(new Error("CORS not allowed"));
       }
+      return callback(new Error("CORS not allowed"));
     },
     credentials: true,
   })
 );
-
-// Handle preflight requests explicitly
-app.options("*", cors());
 
 /* ================= BODY PARSING ================= */
 app.use(express.json());
