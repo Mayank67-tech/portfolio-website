@@ -24,20 +24,19 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://portfolio-website-two-theta-14.vercel.app",
   "https://portfolio-website-git-main-mayank67-techs-projects.vercel.app",
+  "https://portfolio-website-lumr.vercel.app",   // ✅ ADD THIS
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // allow Postman or server-to-server requests
+    origin: function (origin, callback) {
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+        callback(null, true);
+      } else {
+        callback(new Error("Blocked by CORS"));
       }
-
-      console.log("❌ Blocked by CORS:", origin);
-      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
   })
