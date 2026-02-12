@@ -21,7 +21,9 @@ app.use(helmet());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://portfolio-website-two-theta-14.vercel.app",
+  "https://portfolio-website-git-main-mayank67-techs-projects.vercel.app",
 ];
+
 
 app.use(
   cors({
