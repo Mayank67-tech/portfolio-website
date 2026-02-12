@@ -8,6 +8,8 @@ function getTransport() {
   if (!user || !pass) return null;
   return nodemailer.createTransport({
     service: 'gmail',
+    port: 587,
+    secure: false,
     auth: { user, pass },
   });
 }
