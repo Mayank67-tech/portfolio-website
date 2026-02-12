@@ -18,8 +18,8 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/mayank-agarwal-631179281/',
     leetcode: 'https://leetcode.com/u/Mayank5643/',
   },
-  // Google Drive direct download (id from share link). View link: https://drive.google.com/file/d/1KE6Wavoqh9y5eVV4_P-Zzqvp23HLo6rw/view?usp=sharing
-  resumeUrl: 'https://drive.google.com/uc?export=download&id=1KE6Wavoqh9y5eVV4_P-Zzqvp23HLo6rw',
+  // Google Drive direct download (id from share link). View link: https://drive.google.com/file/d/1omDLDyeMSbArNwd_LbMAhl4ucUXB73hX/view?usp=sharing
+  resumeUrl: 'https://drive.google.com/uc?export=download&id=1omDLDyeMSbArNwd_LbMAhl4ucUXB73hX',
 };
 
 /** Skills section – 4 categories, recruiter-focused */
