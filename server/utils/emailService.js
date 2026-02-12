@@ -1,18 +1,7 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'mayankagarwal92.6bit@gmail.com';
-
-function getTransport() {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
-  if (!user || !pass) return null;
-  return nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // IMPORTANT
-    auth: { user, pass },
-  });
-}
 
 /**
  * Send contact form submission to portfolio owner email.
@@ -20,31 +9,32 @@ function getTransport() {
  * @returns {Promise<boolean>} true if sent, false if skipped/failed
  */
 async function sendContactEmail(contact) {
-  const transport = getTransport();
-  if (!transport) {
-    console.warn('Email not configured: set GMAIL_USER and GMAIL_APP_PASSWORD in .env');
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('Resend API Key is missing. Set RESEND_API_KEY in .env');
     return false;
   }
+
   try {
-    await transport.sendMail({
-      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+    const { data, error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>', // Use verified domain or onboarding@resend.dev for testing
       to: RECIPIENT_EMAIL,
       replyTo: contact.email,
       subject: `Portfolio: Message from ${contact.name}`,
-      text: [
-        `From: ${contact.name} <${contact.email}>`,
-        '',
-        contact.message,
-      ].join('\n'),
-      html: [
-        `<p><strong>From:</strong> ${escapeHtml(contact.name)} &lt;${escapeHtml(contact.email)}&gt;</p>`,
-        '<hr style="margin:1em 0">',
-        `<p>${escapeHtml(contact.message).replace(/\n/g, '<br>')}</p>`,
-      ].join(''),
+      html: `
+        <p><strong>From:</strong> ${escapeHtml(contact.name)} &lt;${escapeHtml(contact.email)}&gt;</p>
+        <hr style="margin:1em 0">
+        <p>${escapeHtml(contact.message).replace(/\n/g, '<br>')}</p>
+      `,
     });
+
+    if (error) {
+      console.error('Resend email failed:', error);
+      return false;
+    }
+
     return true;
   } catch (err) {
-    console.error('Contact email send failed:', err.message);
+    console.error('Contact email send exception:', err.message);
     return false;
   }
 }
