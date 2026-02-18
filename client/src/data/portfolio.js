@@ -115,6 +115,19 @@ export const positions = [
 export const experience = [
   {
     type: 'Project',
+    title: 'Vidly',
+    org: 'Personal Project',
+    period: '2025',
+    techStack: 'Next.js, TypeScript, Clerk, Stream, Tailwind, WebRTC',
+    points: [
+      'Built full-stack video conferencing platform with real-time video, chat, and screen sharing.',
+      'Integrated Stream APIs and WebRTC for low-latency real-time communication.',
+      'Implemented authentication, meeting scheduling, participant controls, and session management.',
+      'Deployed on Vercel Edge ensuring scalability, global availability, and low latency.',
+    ],
+  },
+  {
+    type: 'Project',
     title: 'Medi-Care',
     org: 'Personal Project',
     period: '2024',
@@ -138,13 +151,5 @@ export const experience = [
       'Designed end-to-end flow from signup to practice sessions.',
       'Structured scalable REST APIs with modular architecture.',
     ],
-  },
-  {
-    type: 'Open Source',
-    title: 'Contributions',
-    org: '—',
-    period: 'Ongoing',
-    techStack: null,
-    points: ['Exploring open source contributions in Node.js and developer tools.'],
   },
 ];
