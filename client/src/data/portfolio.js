@@ -22,9 +22,9 @@ export const profile = {
     leetcode: 'https://leetcode.com/u/Mayank5643/',
   },
 
-  resumeViewUrl: 'https://drive.google.com/file/d/1b-IXlok4IPiEpYR3fltTC38mfiE0W2tR/view',
+  
 
-  resumeDownloadUrl:
+  resumeUrl:
     'https://drive.google.com/uc?export=download&id=1b-IXlok4IPiEpYR3fltTC38mfiE0W2tR',
 };
 
