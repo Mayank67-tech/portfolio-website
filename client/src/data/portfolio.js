@@ -1,26 +1,34 @@
 export const profile = {
   name: 'Mayank Kumar Agarwal',
   title: 'Computer Science Undergraduate',
-  headline: 'Computer Science Undergraduate | Node.js | Scalable APIs',
-  valueProposition: 'I build secure, scalable backend systems and production-ready web applications.',
+  headline: 'Computer Science Undergraduate | Backend Engineering | Node.js | Scalable Systems',
+  valueProposition: 'I design scalable backend systems, real-time applications, and production-ready web platforms.',
   location: 'Dhanbad, Jharkhand',
   phone: '+91 6200363694',
   email: 'mayankagarwal92.6bit@gmail.com',
+
   summary:
-    'Backend-focused Computer Science undergraduate with strong foundations in DSA, OS, and DBMS. Experienced in designing REST APIs, authentication systems, and scalable backend services using Node.js and MongoDB.',
+    'Computer Science undergraduate skilled in backend engineering, system design, and full-stack development. Experienced in building scalable REST APIs, authentication systems, real-time applications, and payment integrations using Node.js, MongoDB, and modern web technologies. Strong foundation in Data Structures, Operating Systems, and DBMS with 250+ DSA problems solved and proven performance in competitive programming.',
+
   summaryLines: [
-    'Backend-focused CS undergraduate with strong foundations in DSA, OS, and DBMS.',
-    'Experienced in REST APIs, authentication, and scalable services with Node.js and MongoDB.',
-    'Built production apps with payment gateways, secure sessions, and cloud storage. 250+ DSA problems solved.',
+    'Backend-focused CS undergraduate skilled in scalable APIs, authentication, and system design.',
+    'Built real-time and production applications using Node.js, MongoDB, Next.js, and modern cloud tools.',
+    'Strong DSA foundation with 250+ problems solved and 1700+ LeetCode contest rating.',
   ],
+
   links: {
     github: 'https://github.com/Mayank67-tech',
     linkedin: 'https://www.linkedin.com/in/mayank-agarwal-631179281/',
     leetcode: 'https://leetcode.com/u/Mayank5643/',
   },
-  // Google Drive direct download (id from share link). View link: https://drive.google.com/file/d/1omDLDyeMSbArNwd_LbMAhl4ucUXB73hX/view?usp=sharing
-  resumeUrl: 'https://drive.google.com/uc?export=download&id=1omDLDyeMSbArNwd_LbMAhl4ucUXB73hX',
+
+  resumeViewUrl: 'https://drive.google.com/file/d/1b-IXlok4IPiEpYR3fltTC38mfiE0W2tR/view',
+
+  resumeDownloadUrl:
+    'https://drive.google.com/uc?export=download&id=1b-IXlok4IPiEpYR3fltTC38mfiE0W2tR',
 };
+
+
 
 /** Skills section – 4 categories, recruiter-focused */
 export const skillsGroups = [
