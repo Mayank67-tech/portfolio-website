@@ -32,6 +32,18 @@ export const skillsGroups = [
 
 export const projects = [
   {
+    title: 'Vidly',
+    techStack: ['Next.js', 'TypeScript', 'Clerk', 'Stream', 'Tailwind', 'WebRTC'],
+    description: 'Enterprise-grade video conferencing platform with real-time communication.',
+    bullets: [
+      'Built scalable video conferencing platform with real-time video, chat, and screen sharing.',
+      'Integrated Stream APIs and WebRTC for low-latency real-time communication.',
+      'Implemented authentication, participant controls, scheduling, and session management.',
+    ],
+    github: 'https://github.com/Mayank67-tech/Vidly',
+    live: 'https://vidly-chi.vercel.app/',
+  },
+  {
     title: 'Medi-Care',
     techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Stripe', 'Cloudinary'],
     description: 'Full-stack healthcare platform with appointment scheduling and Stripe payment workflows.',
@@ -56,6 +68,7 @@ export const projects = [
     live: 'https://prep-ai-6oop.vercel.app/',
   },
 ];
+
 
 export const skills = {
   programming: ['C', 'C++', 'JavaScript'],
